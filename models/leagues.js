@@ -5,6 +5,9 @@ const leagueSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    name: {
+        type: String
+    },
     private : {
         type: Boolean,
         required: true
