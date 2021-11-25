@@ -13,19 +13,22 @@ app.use(express.static('public'))
 
 //Database Connection
 const mongoose = require('mongoose')
-mongoose.connect(process.env.DATABASE_URL, { useNewURLParser : true })
-const db = mongoose.connection
-db.on('error', error => console.error(error))
-db.once('open', () => console.log('Connected to Mongoose'))
 
 //Importing Routers
 const indexRouter = require('./routes/index')
+const leaguesRouter = require('./routes/leagues')
+const teamsRouter = require('./routes/teams')
 
 //Using Routers
 app.use('/', indexRouter);
-
+app.use('/leagues', leaguesRouter)
+app.use('/teams', teamsRouter)
 
 //Server Started
 app.listen(process.env.PORT || 3000, ()=>{
     console.log("Server listening on PORT 3000");
+
+    mongoose.connect(process.env.DATABASE_URL)
+    .then(() => console.log("Connected"))
+    .catch((err) => console.log(err))
 })
