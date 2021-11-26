@@ -1,0 +1,15 @@
+.league-grid-div {
+  display: grid;
+  /* grid-template-columns: 50% 50%; */
+  grid-template-columns: repeat(3, 1fr);
+  /* gap: -50%; */
+  width: 100%;
+  /* border: 2px solid red; */
+}
+
+.float-left {
+  /* float: left; */
+  width: 85%;
+  /* height: 500px; */
+  /* // or 33% for equal width independent of parent width */
+}
