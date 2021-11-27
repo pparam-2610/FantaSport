@@ -19,6 +19,15 @@
     />
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/card.css" />
+
+    <style>
+      .cards_item {
+        display: block;
+      }
+      /* .card {
+        min-height: 1100px;
+      } */
+    </style>
   </head>
   <body>
     <div class="wrapper d-flex align-items-stretch">
@@ -109,8 +118,8 @@
           culpa qui officia deserunt mollit anim id est laborum.
         </p> -->
         <div class="main">
-          <ul class="cards">
-            <li class="cards_item">
+          <ul class="cards" id="leagueDiv">
+            <!-- <li class="cards_item">
               <div class="card">
                 <div class="card_image">
                   <img src="https://picsum.photos/500/300/?image=14" />
@@ -124,38 +133,7 @@
                   <button class="btn card_btn">Read More</button>
                 </div>
               </div>
-            </li>
-
-            <li class="cards_item">
-              <div class="card">
-                <div class="card_image">
-                  <img src="https://picsum.photos/500/300/?image=17" />
-                </div>
-                <div class="card_content">
-                  <h2 class="card_title">Card Grid Layout</h2>
-                  <p class="card_text">
-                    Demo of pixel perfect pure CSS simple responsive card grid
-                    layout
-                  </p>
-                  <button class="btn card_btn">Read More</button>
-                </div>
-              </div>
-            </li>
-            <li class="cards_item">
-              <div class="card">
-                <div class="card_image">
-                  <img src="https://picsum.photos/500/300/?image=2" />
-                </div>
-                <div class="card_content">
-                  <h2 class="card_title">Card Grid Layout</h2>
-                  <p class="card_text">
-                    Demo of pixel perfect pure CSS simple responsive card grid
-                    layout
-                  </p>
-                  <button class="btn card_btn">Read More</button>
-                </div>
-              </div>
-            </li>
+            </li> -->
           </ul>
         </div>
       </div>
@@ -165,5 +143,83 @@
     <script src="../js/popper.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/main.js"></script>
+    <script>
+      let leagues = [
+        {
+          resource: "stages",
+          id: 2870,
+          league_id: 3,
+          season_id: 857,
+          name: "India tour of South Africa",
+          code: "ISA",
+          type: "league",
+          standings: false,
+          updated_at: "2021-09-11T13:38:50.000000Z",
+        },
+        {
+          resource: "stages",
+          id: 2870,
+          league_id: 3,
+          season_id: 857,
+          name: "India tour of South Africa",
+          code: "ISA",
+          type: "league",
+          standings: false,
+          updated_at: "2021-09-11T13:38:50.000000Z",
+        },
+        {
+          resource: "leagues",
+          id: 5,
+          season_id: 830,
+          country_id: 98,
+          name: "Big Bash League",
+          code: "BBL",
+          image_path:
+            "https://cdn.sportmonks.com/images/cricket/leagues/5/5.png",
+          type: "league",
+          updated_at: "2021-07-14T19:49:33.000000Z",
+        },
+      ];
+
+      let leagueDiv = document.getElementById("leagueDiv");
+      leagueDiv.innerHTML = "";
+      leagues.forEach((league) => {
+        let leagueContent =
+          league.league_id == 3
+            ? "T20 Internationals"
+            : "Australian Cricket League";
+        let image_path = league.image_path
+          ? league.image_path
+          : "https://cdn.sportmonks.com/images/cricket/leagues/3/3.png";
+        let league_id = league.league_id ? league.league_id : league.id;
+        let stage_id =
+          league.league_id && league.league_id == 3 ? league.id : "";
+        leagueDiv.innerHTML +=
+          '<li class="cards_item">' +
+          '<div class="card">' +
+          '  <div class="card_image">' +
+          '    <img src="' +
+          image_path +
+          '" />' +
+          "  </div>" +
+          '<div class="card_content">' +
+          '  <h2 class="card_title">' +
+          league.name +
+          "</h2>" +
+          '  <p class="card_text">T20 Internationals</p>' +
+          '  <form action="/leagues/createLeague" method="post">' +
+          '    <input type="hidden" name="leagueId" value="' +
+          league_id +
+          '" />' +
+          '    <input type="hidden" name="stageId" value="' +
+          stage_id +
+          '" />' +
+          '    <button class="btn card_btn">Create Private League</button>' +
+          "  </form>" +
+          "      </div>" +
+          "    </div>" +
+          "</li>";
+      });
+    </script>
   </body>
 </html>

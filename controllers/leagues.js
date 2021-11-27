@@ -12,6 +12,7 @@ exports.displayLeaguesMatches = (req, res) => {
 };
 
 exports.createLeague = (req, res) => {
+  console.log("Body is: ", req.body);
   res.send("Create League Karega on form submission");
 };
 
