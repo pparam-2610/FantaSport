@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Sidebar 03</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="../../../css/style.css" />
+    <link rel="stylesheet" href="../../../css/card.css" />
+    <link rel="stylesheet" href="../../../css/createTeam.css" />
+    <style></style>
+  </head>
+  <body>
+    <div class="wrapper d-flex align-items-stretch">
+      <nav id="sidebar" class="">
+        <!-- <div class="custom-menu">
+          <button type="button" id="sidebarCollapse" class="btn btn-primary">
+            <i class="fa fa-bars"></i>
+            <span class="sr-only">Toggle Menu</span>
+          </button>
+        </div> -->
+        <div class="p-4">
+          <h1><a href="index.html" class="logo">Flash</a></h1>
+          <ul class="list-unstyled components mb-5">
+            <li>
+              <a href="/stages"><span class="fa fa-home mr-3"></span> Home</a>
+            </li>
+            <li>
+              <a href="/leagues"
+                ><span class="fa fa-user mr-3"></span> League</a
+              >
+            </li>
+            <li>
+              <a href="/teams"
+                ><span class="fa fa-briefcase mr-3"></span> History</a
+              >
+            </li>
+            <li>
+              <a href="/upcoming"
+                ><span class="fa fa-sticky-note mr-3"></span> Upcoming</a
+              >
+            </li>
+            <li>
+              <a href="/user"
+                ><span class="fa fa-paper-plane mr-3"></span> Profile</a
+              >
+            </li>
+          </ul>
+
+          <div class="mb-5">
+            <h3 class="h6 mb-3">Subscribe for newsletter</h3>
+            <form action="#" class="subscribe-form">
+              <div class="form-group d-flex">
+                <div class="icon"><span class="icon-paper-plane"></span></div>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Enter Email Address"
+                />
+              </div>
+            </form>
+          </div>
+
+          <div class="footer">
+            <p>
+              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+              Copyright &copy;
+              <script>
+                document.write(new Date().getFullYear());
+              </script>
+              All rights reserved | This template is made with
+              <i class="icon-heart" aria-hidden="true"></i> by
+              <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
+              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Page Content  -->
+      <div id="content" class="p-4 p-md-5 pt-5">
+        <h2 class="mb-4">Details: India vs New Zealand 1st T20</h2>
+        <!-- <h2 class="mb-2">Points: 420</h2> -->
+        <div class="playerCount">
+          <div>BAT: <span id="batCount" class="numberCount">0</span></div>
+          <div>BOWL: <span id="ballCount" class="numberCount">0</span></div>
+          <div>ALL: <span id="allCount" class="numberCount">0</span></div>
+          <div>WK: <span id="wkCount" class="numberCount">0</span></div>
+        </div>
+        <div class="team-name-div">Team 1</div>
+
+        <!-- <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </p> -->
+        <div class="main">
+          <ul class="cards" id="team1"></ul>
+        </div>
+        <!-- Here team 2 -->
+        <div class="team-name-div">Team 2</div>
+
+        <!-- <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </p> -->
+        <div class="main">
+          <ul class="cards" id="team2"></ul>
+        </div>
+        <div class="playerCount">
+          <button class="btnSubmit" onclick="submitTeam()">Submit</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="../../../js/jquery.min.js"></script>
+    <script src="../../../js/popper.js"></script>
+    <script src="../../../js/bootstrap.min.js"></script>
+    <script src="../../../js/main.js"></script>
+    <script>
+      let team1 = [
+        [
+          {
+            resource: "players",
+            id: 3431,
+            country_id: 462,
+            firstname: "Philip",
+            lastname: "Salt",
+            fullname: "Philip Salt",
+            image_path:
+              "https://cdn.sportmonks.com/images/cricket/players/7/3431.png",
+            dateofbirth: "1996-08-28",
+            gender: "m",
+            battingstyle: "right-hand-bat",
+            bowlingstyle: "right-arm-offbreak",
+            position: {
+              resource: "positions",
+              id: 4,
+              name: "Allrounder",
+            },
+            updated_at: "2020-04-06T06:09:36.000000Z",
+            squad: {
+              season_id: 830,
+            },
+          },
+          {
+            resource: "players",
+            id: 393,
+            country_id: 98,
+            firstname: "Jake",
+            lastname: "Weatherald",
+            fullname: "Jake Weatherald",
+            image_path:
+              "https://cdn.sportmonks.com/images/cricket/players/9/393.png",
+            dateofbirth: "1994-11-04",
+            gender: "m",
+            battingstyle: "left-hand-bat",
+            bowlingstyle: "legbreak",
+            position: {
+              resource: "positions",
+              id: 1,
+              name: "Batsman",
+            },
+            updated_at: "2020-04-02T15:10:23.000000Z",
+            squad: {
+              season_id: 830,
+            },
+          },
+          {
+            resource: "players",
+            id: 394,
+            country_id: 98,
+            firstname: "Jonathan",
+            lastname: "Wells",
+            fullname: "Jonathan Wells",
+            image_path:
+              "https://cdn.sportmonks.com/images/cricket/players/10/394.png",
+            dateofbirth: "1988-08-13",
+            gender: "m",
+            battingstyle: "right-hand-bat",
+            bowlingstyle: "right-arm-fast-medium",
+            position: {
+              resource: "positions",
+              id: 1,
+              name: "Batsman",
+            },
+            updated_at: "2020-04-03T05:27:58.000000Z",
+            squad: {
+              season_id: 830,
+            },
+          },
+          {
+            resource: "players",
+            id: 26,
+            country_id: 98,
+            firstname: "Travis",
+            lastname: "Head",
+            fullname: "Travis Head",
+            image_path:
+              "https://cdn.sportmonks.com/images/cricket/players/26/26.png",
+            dateofbirth: "1993-12-29",
+            gender: "m",
+            battingstyle: "left-hand-bat",
+            bowlingstyle: "right-arm-offbreak",
+            position: {
+              resource: "positions",
+              id: 1,
+              name: "Batsman",
+            },
+            updated_at: "2020-02-06T04:46:12.000000Z",
+            squad: {
+              season_id: 830,
+            },
+          },
+          {
+            resource: "players",
+            id: 34,
+            country_id: 98,
+            firstname: "Matt",
+            lastname: "Renshaw",
+            fullname: "Matt Renshaw",
+            image_path:
+              "https://cdn.sportmonks.com/images/cricket/players/2/34.png",
+            dateofbirth: "1996-03-28",
+            gender: "m",
+            battingstyle: "left-hand-bat",
+            bowlingstyle: "right-arm-offbreak",
+            position: {
+              resource: "positions",
+              id: 1,
+              name: "Batsman",
+            },
+            updated_at: "2020-02-06T04:49:24.000000Z",
+            squad: {
+              season_id: 830,
+            },
+          },
+          {
+            resource: "players",
+            id: 887,
+            country_id: 98,
+            firstname: "Ryan",
+            lastname: "Gibson",
+            fullname: "Ryan Gibson",
+            image_path:
+              "https://cdn.sportmonks.com/images/cricket/players/23/887.png",
+            dateofbirth: "1993-12-30",
+            gender: "m",
+            battingstyle: "right-hand-bat",
+            bowlingstyle: "right-arm-fast-medium",
+            position: {
+              resource: "positions",
+              id: 1,
+              name: "Batsman",
+            },
+            updated_at: "2020-04-06T12:50:45.000000Z",
+            squad: {
+              season_id: 830,
+            },
+          },
+          {
+            resource: "players",
+            id: 397,
+            country_id: 98,
+            firstname: "Matthew",
+            lastname: "Short",
+            fullname: "Matthew Short",
+            image_path:
+              "https://cdn.sportmonks.com/images/cricket/players/13/397.png",
+            dateofbirth: "1995-11-08",
+            gender: "m",
+            battingstyle: "right-hand-bat",
+            bowlingstyle: "right-arm-offbreak",
+            position: {
+              resource: "positions",
+              id: 4,
+              name: "Allrounder",
+            },
+            updated_at: "2020-04-04T07:27:06.000000Z",
+            squad: {
+              season_id: 830,
+            },
+          },
+          {
+            resource: "players",
+            id: 408,
+            country_id: 98,
+            firstname: "Cameron",
+            lastname: "Valente",
+            fullname: "Cameron Valente",
+            image_path:
+              "https://cdn.sportmonks.com/images/cricket/players/24/408.png",
+            dateofbirth: "1994-09-06",
+            gender: "m",
+            battingstyle: "right-hand-bat",
+            bowlingstyle: "right-arm-fast-medium",
+            position: {
+              resource: "positions",
+              id: 4,
+              name: "Allrounder",
+            },
+            updated_at: "2020-04-01T06:50:37.000000Z",
+            squad: {
+              season_id: 830,
+            },
+          },
+          {
+            resource: "players",
+            id: 10119,
+            country_id: 98,
+            firstname: "Liam",
+            lastname: "Scott",
+            fullname: "Liam Scott",
+            image_path:
+              "https://cdn.sportmonks.com/images/cricket/players/7/10119.png",
+            dateofbirth: "2000-12-12",
+            gender: "m",
+            battingstyle: "right-hand-bat",
+            bowlingstyle: null,
+            position: {
+              resource: "positions",
+              id: 4,
+              name: "Allrounder",
+            },
+            updated_at: "2020-02-06T08:02:00.000000Z",
+            squad: {
+              season_id: 830,
+            },
+          },
+          {
+            resource: "players",
+            id: 399,
+            country_id: 98,
+            firstname: "Harry",
+            lastname: "Nielsen",
+            fullname: "Harry Nielsen",
+            image_path:
+              "https://cdn.sportmonks.com/images/cricket/players/15/399.png",
+            dateofbirth: "1995-05-03",
+            gender: "m",
+            battingstyle: "left-hand-bat",
+            bowlingstyle: "right-arm-offbreak",
+            position: {
+              resource: "positions",
+              id: 3,
+              name: "Wicketkeeper",
+            },
+            updated_at: "2020-04-02T07:38:37.000000Z",
+            squad: {
+              season_id: 830,
+            },
+          },
+          {
+            resource: "players",
+            id: 37,
+            country_id: 98,
+            firstname: "Alex",
+            lastname: "Carey",
+            fullname: "Alex Carey",
+            image_path:
+              "https://cdn.sportmonks.com/images/cricket/players/5/37.png",
+            dateofbirth: "1991-08-27",
+            gender: "m",
+            battingstyle: "left-hand-bat",
+            bowlingstyle: null,
+            position: {
+              resource: "positions",
+              id: 3,
+              name: "Wicketkeeper",
+            },
+            updated_at: "2020-02-06T04:52:45.000000Z",
+            squad: {
+              season_id: 830,
+            },
+          },
+          {
+            resource: "players",
+            id: 403,
+            country_id: 98,
+            firstname: "Liam",
+            lastname: "O'Connor",
+            fullname: "Liam O'Connor",
+            image_path:
+              "https://cdn.sportmonks.com/images/cricket/players/19/403.png",
+            dateofbirth: "1993-06-20",
+            gender: "m",
+            battingstyle: "right-hand-bat",
+            bowlingstyle: "legbreak",
+            position: {
+              resource: "positions",
+              id: 2,
+              name: "Bowler",
+            },
+            updated_at: "2020-04-04T05:01:01.000000Z",
+            squad: {
+              season_id: 830,
+            },
+          },
+          {
+            resource: "players",
+            id: 461,
+            country_id: 98,
+            firstname: "Daniel",
+            lastname: "Worrall",
+            fullname: "Daniel Worrall",
+            image_path:
+              "https://cdn.sportmonks.com/images/cricket/players/13/461.png",
+            dateofbirth: "1991-07-10",
+            gender: "m",
+            battingstyle: "right-hand-bat",
+            bowlingstyle: "right-arm-fast-medium",
+            position: {
+              resource: "positions",
+              id: 2,
+              name: "Bowler",
+            },
+            updated_at: "2020-04-01T11:40:51.000000Z",
+            squad: {
+              season_id: 830,
+            },
+          },
+          {
+            resource: "players",
+            id: 875,
+            country_id: 98,
+            firstname: "Harry",
+            lastname: "Conway",
+            fullname: "Harry Conway",
+            image_path:
+              "https://cdn.sportmonks.com/images/cricket/players/11/875.png",
+            dateofbirth: "1992-09-17",
+            gender: "m",
+            battingstyle: "right-hand-bat",
+            bowlingstyle: "right-arm-fast-medium",
+            position: {
+              resource: "positions",
+              id: 2,
+              name: "Bowler",
+            },
+            updated_at: "2020-04-02T07:38:21.000000Z",
+            squad: {
+              season_id: 830,
+            },
+          },
+          {
+            resource: "players",
+            id: 2690,
+            country_id: 462,
+            firstname: "Danny",
+            lastname: "Briggs",
+            fullname: "Danny Briggs",
+            image_path:
+              "https://cdn.sportmonks.com/images/cricket/players/2/2690.png",
+            dateofbirth: "1991-04-30",
+            gender: "m",
+            battingstyle: "right-hand-bat",
+            bowlingstyle: "slow-left-arm-orthodox",
+            position: {
+              resource: "positions",
+              id: 4,
+              name: "Allrounder",
+            },
+            updated_at: "2020-04-01T11:47:11.000000Z",
+            squad: {
+              season_id: 830,
+            },
+          },
+          {
+            resource: "players",
+            id: 306,
+            country_id: 43444,
+            firstname: "Rashid",
+            lastname: "Khan",
+            fullname: "Rashid Khan",
+            image_path:
+              "https://cdn.sportmonks.com/images/cricket/players/18/306.png",
+            dateofbirth: "1998-09-20",
+            gender: "m",
+            battingstyle: "right-hand-bat",
+            bowlingstyle: "legbreak-googly",
+            position: {
+              resource: "positions",
+              id: 2,
+              name: "Bowler",
+            },
+            updated_at: "2020-02-04T09:42:28.000000Z",
+            squad: {
+              season_id: 830,
+            },
+          },
+          {
+            resource: "players",
+            id: 401,
+            country_id: 98,
+            firstname: "Wes",
+            lastname: "Agar",
+            fullname: "Wes Agar",
+            image_path:
+              "https://cdn.sportmonks.com/images/cricket/players/17/401.png",
+            dateofbirth: "1997-02-05",
+            gender: "m",
+            battingstyle: "right-hand-bat",
+            bowlingstyle: "right-arm-fast",
+            position: {
+              resource: "positions",
+              id: 2,
+              name: "Bowler",
+            },
+            updated_at: "2020-04-09T05:01:49.000000Z",
+            squad: {
+              season_id: 830,
+            },
+          },
+          {
+            resource: "players",
+            id: 911,
+            country_id: 98,
+            firstname: "Spencer",
+            lastname: "Johnson",
+            fullname: "Spencer Johnson",
+            image_path: "https://cdn.sportmonks.com",
+            dateofbirth: "1995-12-16",
+            gender: "m",
+            battingstyle: "left-hand-bat",
+            bowlingstyle: null,
+            position: {
+              resource: "positions",
+              id: 2,
+              name: "Bowler",
+            },
+            updated_at: "2020-04-08T04:45:47.000000Z",
+            squad: {
+              season_id: 830,
+            },
+          },
+          {
+            resource: "players",
+            id: 35,
+            country_id: 98,
+            firstname: "Peter",
+            lastname: "Siddle",
+            fullname: "Peter Siddle",
+            image_path:
+              "https://cdn.sportmonks.com/images/cricket/players/3/35.png",
+            dateofbirth: "1984-11-25",
+            gender: "m",
+            battingstyle: "right-hand-bat",
+            bowlingstyle: "right-arm-fast-medium",
+            position: {
+              resource: "positions",
+              id: 2,
+              name: "Bowler",
+            },
+            updated_at: "2020-02-06T04:49:42.000000Z",
+            squad: {
+              season_id: 830,
+            },
+          },
+        ],
+      ];
+      let team2 = [
+        {
+          resource: "players",
+          id: 406,
+          country_id: 98,
+          firstname: "Sam",
+          lastname: "Heazlett",
+          fullname: "Sam Heazlett",
+          image_path:
+            "https://cdn.sportmonks.com/images/cricket/players/22/406.png",
+          dateofbirth: "1995-09-12",
+          gender: "m",
+          battingstyle: "left-hand-bat",
+          bowlingstyle: "slow-left-arm-orthodox",
+          position: {
+            resource: "positions",
+            id: 1,
+            name: "Batsman",
+          },
+          updated_at: "2020-04-07T07:55:40.000000Z",
+          squad: {
+            season_id: 830,
+          },
+        },
+        {
+          resource: "players",
+          id: 328,
+          country_id: 462,
+          firstname: "Joe",
+          lastname: "Denly",
+          fullname: "Joe Denly",
+          image_path:
+            "https://cdn.sportmonks.com/images/cricket/players/8/328.png",
+          dateofbirth: "1986-03-16",
+          gender: "m",
+          battingstyle: "right-hand-bat",
+          bowlingstyle: "legbreak",
+          position: {
+            resource: "positions",
+            id: 2,
+            name: "Bowler",
+          },
+          updated_at: "2020-03-31T11:08:43.000000Z",
+          squad: {
+            season_id: 830,
+          },
+        },
+        {
+          resource: "players",
+          id: 405,
+          country_id: 98,
+          firstname: "Max",
+          lastname: "Bryant",
+          fullname: "Max Bryant",
+          image_path:
+            "https://cdn.sportmonks.com/images/cricket/players/21/405.png",
+          dateofbirth: "1999-03-10",
+          gender: "m",
+          battingstyle: "right-hand-bat",
+          bowlingstyle: "right-arm-fast-medium",
+          position: {
+            resource: "positions",
+            id: 1,
+            name: "Batsman",
+          },
+          updated_at: "2020-12-14T18:55:25.000000Z",
+          squad: {
+            season_id: 830,
+          },
+        },
+        {
+          resource: "players",
+          id: 29,
+          country_id: 98,
+          firstname: "Marnus",
+          lastname: "Labuschagne",
+          fullname: "Marnus Labuschagne",
+          image_path:
+            "https://cdn.sportmonks.com/images/cricket/players/29/29.png",
+          dateofbirth: "1994-06-22",
+          gender: "m",
+          battingstyle: "right-hand-bat",
+          bowlingstyle: "legbreak-googly",
+          position: {
+            resource: "positions",
+            id: 1,
+            name: "Batsman",
+          },
+          updated_at: "2020-12-14T18:51:00.000000Z",
+          squad: {
+            season_id: 830,
+          },
+        },
+        {
+          resource: "players",
+          id: 434,
+          country_id: 98,
+          firstname: "Tom",
+          lastname: "Cooper",
+          fullname: "Tom Cooper",
+          image_path:
+            "https://cdn.sportmonks.com/images/cricket/players/18/434.png",
+          dateofbirth: "1986-11-26",
+          gender: "m",
+          battingstyle: "right-hand-bat",
+          bowlingstyle: "right-arm-offbreak",
+          position: {
+            resource: "positions",
+            id: 1,
+            name: "Batsman",
+          },
+          updated_at: "2020-12-14T18:54:21.000000Z",
+          squad: {
+            season_id: 830,
+          },
+        },
+        {
+          resource: "players",
+          id: 3950,
+          country_id: 462,
+          firstname: "Daniel",
+          lastname: "Lawrence",
+          fullname: "Daniel Lawrence",
+          image_path:
+            "https://cdn.sportmonks.com/images/cricket/players/14/3950.png",
+          dateofbirth: "1997-07-12",
+          gender: "m",
+          battingstyle: "right-hand-bat",
+          bowlingstyle: "right-arm-offbreak",
+          position: {
+            resource: "positions",
+            id: 4,
+            name: "Allrounder",
+          },
+          updated_at: "2020-09-11T15:19:07.000000Z",
+          squad: {
+            season_id: 830,
+          },
+        },
+        {
+          resource: "players",
+          id: 39,
+          country_id: 98,
+          firstname: "Chris",
+          lastname: "Lynn",
+          fullname: "Chris Lynn",
+          image_path:
+            "https://cdn.sportmonks.com/images/cricket/players/7/39.png",
+          dateofbirth: "1990-04-10",
+          gender: "m",
+          battingstyle: "right-hand-bat",
+          bowlingstyle: "slow-left-arm-orthodox",
+          position: {
+            resource: "positions",
+            id: 1,
+            name: "Batsman",
+          },
+          updated_at: "2020-02-06T04:51:58.000000Z",
+          squad: {
+            season_id: 830,
+          },
+        },
+        {
+          resource: "players",
+          id: 423,
+          country_id: 98,
+          firstname: "James",
+          lastname: "Bazley",
+          fullname: "James Bazley",
+          image_path:
+            "https://cdn.sportmonks.com/images/cricket/players/7/423.png",
+          dateofbirth: "1995-04-08",
+          gender: "m",
+          battingstyle: "right-hand-bat",
+          bowlingstyle: "right-arm-fast-medium",
+          position: {
+            resource: "positions",
+            id: 4,
+            name: "Allrounder",
+          },
+          updated_at: "2020-04-03T04:31:52.000000Z",
+          squad: {
+            season_id: 830,
+          },
+        },
+        {
+          resource: "players",
+          id: 33,
+          country_id: 98,
+          firstname: "Michael",
+          lastname: "Neser",
+          fullname: "Michael Neser",
+          image_path:
+            "https://cdn.sportmonks.com/images/cricket/players/1/33.png",
+          dateofbirth: "1990-03-29",
+          gender: "m",
+          battingstyle: "right-hand-bat",
+          bowlingstyle: "right-arm-fast-medium",
+          position: {
+            resource: "positions",
+            id: 1,
+            name: "Batsman",
+          },
+          updated_at: "2020-02-06T04:48:58.000000Z",
+          squad: {
+            season_id: 830,
+          },
+        },
+        {
+          resource: "players",
+          id: 200,
+          country_id: 98,
+          firstname: "Jack",
+          lastname: "Wildermuth",
+          fullname: "Jack Wildermuth",
+          image_path:
+            "https://cdn.sportmonks.com/images/cricket/players/8/200.png",
+          dateofbirth: "1993-09-01",
+          gender: "m",
+          battingstyle: "right-hand-bat",
+          bowlingstyle: "right-arm-fast-medium",
+          position: {
+            resource: "positions",
+            id: 2,
+            name: "Bowler",
+          },
+          updated_at: "2020-12-14T18:53:54.000000Z",
+          squad: {
+            season_id: 830,
+          },
+        },
+        {
+          resource: "players",
+          id: 421,
+          country_id: 98,
+          firstname: "Simon",
+          lastname: "Milenko",
+          fullname: "Simon Milenko",
+          image_path:
+            "https://cdn.sportmonks.com/images/cricket/players/5/421.png",
+          dateofbirth: "1988-11-24",
+          gender: "m",
+          battingstyle: "right-hand-bat",
+          bowlingstyle: "right-arm-fast-medium",
+          position: {
+            resource: "positions",
+            id: 4,
+            name: "Allrounder",
+          },
+          updated_at: "2020-04-08T04:32:06.000000Z",
+          squad: {
+            season_id: 830,
+          },
+        },
+        {
+          resource: "players",
+          id: 3482,
+          country_id: 462,
+          firstname: "Lewis",
+          lastname: "Gregory",
+          fullname: "Lewis Gregory",
+          image_path:
+            "https://cdn.sportmonks.com/images/cricket/players/26/3482.png",
+          dateofbirth: "1992-05-24",
+          gender: "m",
+          battingstyle: "right-hand-bat",
+          bowlingstyle: "right-arm-fast-medium",
+          position: {
+            resource: "positions",
+            id: 4,
+            name: "Allrounder",
+          },
+          updated_at: "2020-03-31T11:36:08.000000Z",
+          squad: {
+            season_id: 830,
+          },
+        },
+        {
+          resource: "players",
+          id: 926,
+          country_id: 98,
+          firstname: "Lachlan",
+          lastname: "Pfeffer",
+          fullname: "Lachlan Pfeffer",
+          image_path:
+            "https://cdn.sportmonks.com/images/cricket/players/30/926.png",
+          dateofbirth: "1991-04-08",
+          gender: "m",
+          battingstyle: "left-hand-bat",
+          bowlingstyle: null,
+          position: {
+            resource: "positions",
+            id: 3,
+            name: "Wicketkeeper",
+          },
+          updated_at: "2020-04-04T04:37:14.000000Z",
+          squad: {
+            season_id: 830,
+          },
+        },
+        {
+          resource: "players",
+          id: 3497,
+          country_id: 462,
+          firstname: "Tom",
+          lastname: "Banton",
+          fullname: "Tom Banton",
+          image_path:
+            "https://cdn.sportmonks.com/images/cricket/players/9/3497.png",
+          dateofbirth: "1998-11-11",
+          gender: "m",
+          battingstyle: "right-hand-bat",
+          bowlingstyle: null,
+          position: {
+            resource: "positions",
+            id: 1,
+            name: "Batsman",
+          },
+          updated_at: "2020-09-20T18:22:01.000000Z",
+          squad: {
+            season_id: 830,
+          },
+        },
+        {
+          resource: "players",
+          id: 965,
+          country_id: 98,
+          firstname: "Jimmy",
+          lastname: "Peirson",
+          fullname: "Jimmy Peirson",
+          image_path:
+            "https://cdn.sportmonks.com/images/cricket/players/5/965.png",
+          dateofbirth: "1992-10-13",
+          gender: "m",
+          battingstyle: "right-hand-bat",
+          bowlingstyle: null,
+          position: {
+            resource: "positions",
+            id: 3,
+            name: "Wicketkeeper",
+          },
+          updated_at: "2020-04-03T05:14:07.000000Z",
+          squad: {
+            season_id: 830,
+          },
+        },
+        {
+          resource: "players",
+          id: 414,
+          country_id: 98,
+          firstname: "Mark",
+          lastname: "Steketee",
+          fullname: "Mark Steketee",
+          image_path:
+            "https://cdn.sportmonks.com/images/cricket/players/30/414.png",
+          dateofbirth: "1994-01-17",
+          gender: "m",
+          battingstyle: "right-hand-bat",
+          bowlingstyle: "right-arm-fast-medium",
+          position: {
+            resource: "positions",
+            id: 2,
+            name: "Bowler",
+          },
+          updated_at: "2020-04-04T07:04:57.000000Z",
+          squad: {
+            season_id: 830,
+          },
+        },
+        {
+          resource: "players",
+          id: 947,
+          country_id: 98,
+          firstname: "Xavier",
+          lastname: "Bartlett",
+          fullname: "Xavier Bartlett",
+          image_path:
+            "https://cdn.sportmonks.com/images/cricket/players/19/947.png",
+          dateofbirth: "1998-12-17",
+          gender: "m",
+          battingstyle: "right-hand-bat",
+          bowlingstyle: "right-arm-fast-medium",
+          position: {
+            resource: "positions",
+            id: 2,
+            name: "Bowler",
+          },
+          updated_at: "2020-04-09T05:14:01.000000Z",
+          squad: {
+            season_id: 830,
+          },
+        },
+        {
+          resource: "players",
+          id: 10116,
+          country_id: 98,
+          firstname: "Connor",
+          lastname: "Sully",
+          fullname: "Connor Sully",
+          image_path:
+            "https://cdn.sportmonks.com/images/cricket/players/4/10116.png",
+          dateofbirth: "2000-10-24",
+          gender: "m",
+          battingstyle: "right-hand-bat",
+          bowlingstyle: null,
+          position: {
+            resource: "positions",
+            id: 1,
+            name: "Batsman",
+          },
+          updated_at: "2020-02-06T08:00:51.000000Z",
+          squad: {
+            season_id: 830,
+          },
+        },
+        {
+          resource: "players",
+          id: 382,
+          country_id: 98,
+          firstname: "Ben",
+          lastname: "Laughlin",
+          fullname: "Ben Laughlin",
+          image_path:
+            "https://cdn.sportmonks.com/images/cricket/players/30/382.png",
+          dateofbirth: "1982-10-03",
+          gender: "m",
+          battingstyle: "right-hand-bat",
+          bowlingstyle: "right-arm-fast-medium",
+          position: {
+            resource: "positions",
+            id: 2,
+            name: "Bowler",
+          },
+          updated_at: "2020-04-01T03:04:27.000000Z",
+          squad: {
+            season_id: 830,
+          },
+        },
+        {
+          resource: "players",
+          id: 790,
+          country_id: 146,
+          firstname: "Morne",
+          lastname: "Morkel",
+          fullname: "Morne Morkel",
+          image_path:
+            "https://cdn.sportmonks.com/images/cricket/players/22/790.png",
+          dateofbirth: "1984-10-06",
+          gender: "m",
+          battingstyle: "left-hand-bat",
+          bowlingstyle: "right-arm-fast",
+          position: {
+            resource: "positions",
+            id: 2,
+            name: "Bowler",
+          },
+          updated_at: "2020-04-05T13:18:28.000000Z",
+          squad: {
+            season_id: 830,
+          },
+        },
+        {
+          resource: "players",
+          id: 194,
+          country_id: 98,
+          firstname: "Mitchell",
+          lastname: "Swepson",
+          fullname: "Mitchell Swepson",
+          image_path:
+            "https://cdn.sportmonks.com/images/cricket/players/2/194.png",
+          dateofbirth: "1993-10-04",
+          gender: "m",
+          battingstyle: "right-hand-bat",
+          bowlingstyle: "legbreak-googly",
+          position: {
+            resource: "positions",
+            id: 2,
+            name: "Bowler",
+          },
+          updated_at: "2020-02-06T05:08:02.000000Z",
+          squad: {
+            season_id: 830,
+          },
+        },
+        {
+          resource: "players",
+          id: 1055,
+          country_id: 98,
+          firstname: "Matthew",
+          lastname: "Kuhnemann",
+          fullname: "Matthew Kuhnemann",
+          image_path:
+            "https://cdn.sportmonks.com/images/cricket/players/31/1055.png",
+          dateofbirth: "1996-09-20",
+          gender: "m",
+          battingstyle: "left-hand-bat",
+          bowlingstyle: "slow-left-arm-orthodox",
+          position: {
+            resource: "positions",
+            id: 2,
+            name: "Bowler",
+          },
+          updated_at: "2020-04-04T07:21:52.000000Z",
+          squad: {
+            season_id: 830,
+          },
+        },
+        {
+          resource: "players",
+          id: 24162,
+          country_id: 98,
+          firstname: "Jack",
+          lastname: "Wood",
+          fullname: "Jack Wood",
+          image_path: "https://cdn.sportmonks.com",
+          dateofbirth: "1996-10-01",
+          gender: "m",
+          battingstyle: "right-hand-bat",
+          bowlingstyle: "slow-left-arm-orthodox",
+          position: {
+            resource: "positions",
+            id: 2,
+            name: "Bowler",
+          },
+          updated_at: "2020-12-11T08:15:21.000000Z",
+          squad: {
+            season_id: 830,
+          },
+        },
+        {
+          resource: "players",
+          id: 294,
+          country_id: 43444,
+          firstname: "Mujeeb",
+          lastname: "Ur Rahman",
+          fullname: "Mujeeb Ur Rahman",
+          image_path:
+            "https://cdn.sportmonks.com/images/cricket/players/6/294.png",
+          dateofbirth: "2001-03-28",
+          gender: "m",
+          battingstyle: "right-hand-bat",
+          bowlingstyle: "right-arm-offbreak",
+          position: {
+            resource: "positions",
+            id: 2,
+            name: "Bowler",
+          },
+          updated_at: "2020-02-04T09:43:31.000000Z",
+          squad: {
+            season_id: 830,
+          },
+        },
+      ];
+
+      let team1Div = document.getElementById("team1");
+      team1Div.innerHTML = "";
+      let team2Div = document.getElementById("team2");
+      team1[0].forEach((player) => {
+        team1Div.innerHTML +=
+          // console.log(player);
+          '<div class="wrapper1" style="margin: 10px">' +
+          '<div class="top-icons">' +
+          '<i class="fas fa-long-arrow-alt-left"></i>' +
+          "</div>" +
+          '<div class="profile">' +
+          '<img src="' +
+          player.image_path +
+          '" class="thumbnail"/>' +
+          '<h3 class="name">' +
+          player.fullname +
+          "</h3>" +
+          '<p class="title">' +
+          player.position.name +
+          "</p>" +
+          '<p class="description">' +
+          `${player.battingstyle ? player.battingstyle : "-"},${
+            player.bowlingstyle ? player.bowlingstyle : "-"
+          }` +
+          "</p>" +
+          '<button type="button" id = ' +
+          player.id +
+          ' class="btn" onClick = "playerSelection(' +
+          player.id +
+          "," +
+          1 +
+          ')"">Select</button>' +
+          "</div>" +
+          "</div>";
+      });
+
+      team2.forEach((player) => {
+        team2Div.innerHTML +=
+          // console.log(player);
+          '<div class="wrapper1" style="margin: 10px">' +
+          '<div class="top-icons">' +
+          '<i class="fas fa-long-arrow-alt-left"></i>' +
+          "</div>" +
+          '<div class="profile">' +
+          '<img src="' +
+          player.image_path +
+          '" class="thumbnail"/>' +
+          '<h3 class="name">' +
+          player.fullname +
+          "</h3>" +
+          '<p class="title">' +
+          player.position.name +
+          "</p>" +
+          '<p class="description">' +
+          `${player.battingstyle ? player.battingstyle : "-"},${
+            player.bowlingstyle ? player.bowlingstyle : "-"
+          }` +
+          "</p>" +
+          '<button type="button" class="btn" id = ' +
+          player.id +
+          ' onClick = "playerSelection(' +
+          player.id +
+          "," +
+          2 +
+          ')"">Select</button>' +
+          "</div>" +
+          "</div>";
+      });
+
+      let playersSelected = [];
+      let batCount = 0;
+      let ballCount = 0;
+      let allRounder = 0;
+      let wkCount = 0;
+
+      function playerSelection(id, teamId) {
+        console.log("Team: ", id, teamId);
+        if (!playersSelected.includes(id)) {
+          console.log("Adding");
+          playersSelected.push(id);
+          let player = getPlayerDetails(id);
+          console.log(player);
+          if (player.position.name == "Batsman") {
+            batCount++;
+          } else if (player.position.name == "Bowler") {
+            ballCount++;
+          } else if (player.position.name == "Wicketkeeper") {
+            wkCount++;
+          } else {
+            allRounder++;
+          }
+          document.getElementById(id).innerHTML = "UnSelect";
+          document.getElementById(id).style.background = "red";
+        } else {
+          let indexOf = playersSelected.indexOf(id);
+          console.log("Removing: ", indexOf);
+          playersSelected.splice(indexOf, 1);
+          console.log("Array: ", playersSelected);
+          let player = getPlayerDetails(id);
+          if (player.position.name == "Batsman") {
+            batCount--;
+          } else if (player.position.name == "Bowler") {
+            ballCount--;
+          } else if (player.position.name == "Wicketkeeper") {
+            wkCount--;
+          } else {
+            allRounder--;
+          }
+
+          document.getElementById(id).innerHTML = "Select";
+          document.getElementById(id).style.background = "green";
+        }
+        document.getElementById("batCount").innerHTML = batCount;
+        document.getElementById("ballCount").innerHTML = ballCount;
+        document.getElementById("allCount").innerHTML = allRounder;
+        document.getElementById("wkCount").innerHTML = wkCount;
+
+        console.log(
+          "Already Selected:",
+          ballCount,
+          batCount,
+          allRounder,
+          wkCount
+        );
+      }
+
+      function getPlayerDetails(id) {
+        let player = team1[0].filter((x) => x.id == id);
+        console.log("details: ", player);
+        if (!player.length) {
+          player = team2.filter((x) => x.id == id);
+        }
+        return player[0];
+      }
+
+      function sufficientCondition() {
+        if (allRounder < 1 && allRounder > 2) {
+          return false;
+        } else if (batCount < 3 && batCount > 5) {
+          return false;
+        } else if (ballCount < 3 && ballCount > 4) {
+          return false;
+        } else if (wkCount < 1 && wkCount > 2) {
+          return false;
+        }
+        return true;
+      }
+
+      function submitTeam() {
+        if (sufficientCondition()) {
+          let playerData = [];
+          playersSelected.map((id) => {
+            playerData.push(getPlayerDetails(id));
+          });
+
+          console.log("The players are: ", playerData);
+
+          // Here post the team
+        } else {
+          console.log("The Team is invalid");
+        }
+      }
+    </script>
+  </body>
+</html>
