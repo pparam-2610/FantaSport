@@ -3,7 +3,8 @@ const mongoose = require('mongoose')
 const leagueSchema = new mongoose.Schema({
     leagueCode: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     name: {
         type: String
@@ -18,9 +19,19 @@ const leagueSchema = new mongoose.Schema({
     stageId: {
         type: Number
     },
+    displayDetails: {
+        type: Object
+    },
     createdBy: {
         type: String
-    }
+    },
+    endDate: {
+        type: Date
+    },
+    users: [{ 
+        type: Schema.Types.ObjectId, 
+        ref: 'Users'
+    }]
 })
 
 module.exports = mongoose.model('Leagues' , leagueSchema)

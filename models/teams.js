@@ -17,12 +17,18 @@ const teamSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
+    fixtureDetails: {
+        type: Object
+    },
     players: {
         type: Array,
         required: true
     },
     points: {
         type: Number
+    },
+    createDate: {
+        type: Date
     }
 })
 
