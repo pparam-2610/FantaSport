@@ -5,9 +5,9 @@ const teamSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    createdBy : {
-        type: String,
-        required: true
+    user : { 
+        type: Schema.Types.ObjectId, 
+        ref: 'Users'
     },
     leagueCode : {
         type: String,

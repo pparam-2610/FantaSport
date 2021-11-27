@@ -1,5 +1,8 @@
+const League = require('../classes/leagues');
+
 exports.displayLeagues = (req, res) => {
   // res.send("Display Private and Public leagues")
+  League.test();
   res.render("leagues");
 };
 
