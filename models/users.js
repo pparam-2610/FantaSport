@@ -3,9 +3,15 @@ const mongoose = require('mongoose')
 const usersSchema = new mongoose.Schema({
     userId: {
         type: String,
-        required: true
+        unique: true
+    },
+    googleId: {
+        type: String,
     },
     name: {
+        type: String,
+    },
+    password: {
         type: String,
     },
     admin: {

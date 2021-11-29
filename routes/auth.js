@@ -6,10 +6,10 @@ router.get("/google",
   passport.authenticate("google", { scope: ["profile","email"] })
 );
 router.get("/google/callback",
-  passport.authenticate("google", { failureRedirect: "http://localhost:3000" }),
+  passport.authenticate("google", { failureRedirect: "http://localhost:8000" }),
   function(req, res) {
     // Successful authentication, redirect secrets.
-    res.redirect("http://localhost:3000/main");
+    res.redirect("http://localhost:8000/leagues");
   });
 
 router.get('/me',(req,res)=>{

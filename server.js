@@ -50,11 +50,11 @@ app.use("/teams", teamsRouter);
 app.use("/user", userRouter);
 
 //Server Started
-app.listen(process.env.PORT || 3000, () => {
-  console.log("Server listening on PORT 3000");
+app.listen(process.env.PORT || 8000, () => {
+  console.log("Server listening on PORT 8000");
 
   mongoose
     .connect(process.env.DATABASE_URL)
-    .then(() => console.log("Connected"))
+    .then(() => console.log("Connected to Mongoose"))
     .catch((err) => console.log(err));
 });
