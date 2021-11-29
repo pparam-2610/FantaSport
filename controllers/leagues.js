@@ -1,4 +1,4 @@
-const League = require('../classes/leagues');
+const League = require("../classes/leagues");
 
 exports.displayLeagues = (req, res) => {
   // res.send("Display Private and Public leagues")
@@ -12,6 +12,7 @@ exports.displayLeaguesMatches = (req, res) => {
 };
 
 exports.createLeague = (req, res) => {
+  console.log("Body is: ", req.body);
   res.send("Create League Karega on form submission");
 };
 
@@ -22,9 +23,11 @@ exports.leagueLeaderboard = (req, res) => {
 };
 
 exports.displayCreateTeam = (req, res) => {
-  res.send(
-    `Team making interface for league code ${req.params.leagueCode} with fixture id ${req.params.fixtureId}`
-  );
+  // res.send(
+  //   `Team making interface for league code ${req.params.leagueCode} with fixture id ${req.params.fixtureId}`
+  // );
+  console.log("hlsdhblj");
+  res.render("createTeam");
 };
 
 exports.createTeam = (req, res) => {

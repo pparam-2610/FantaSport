@@ -21,7 +21,14 @@
     <link rel="stylesheet" href="../css/tabs.css" />
     <link rel="stylesheet" href="../css/card.css" />
     <link rel="stylesheet" href="../css/grid.css" />
-    <style></style>
+    <style>
+      .card_btn{
+        margin-top: 2%;
+      }
+      .cards_item {
+        display: block;
+      }
+    </style>
   </head>
   <body>
     <div class="wrapper d-flex align-items-stretch">
@@ -109,7 +116,7 @@
       <div class="slider"><div class="indicator"></div></div>
       <div class="content">
         <section>
-            <div class = "league-grid-div">
+            <div class = "league-grid-div" id = "publicDiv">
                 <div class="cards_item float-left">
                     <div class="card">
                       <div class="card_image">
@@ -133,7 +140,7 @@
             <!-- <h2>Delivery Contents</h2> -->
             <!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem quas adipisci a accusantium eius ut voluptatibus ad impedit nulla, ipsa qui. Quasi temporibus eos commodi aliquid impedit amet, similique nulla.</section> -->
             
-            <div class="league-grid-div">
+            <div class="league-grid-div" id="privateDiv">
                 <div class="cards_item float-left">
                   <div class="card">
                     <div class="card_image">
@@ -160,7 +167,9 @@
                         Demo of pixel perfect pure SS simple responsive card grid
                         layout
                       </p>
-                      <button class="btn card_btn">Read More</button>
+                      <button class="btn card_btn">Compete</button>
+                      <button class="btn card_btn">Leaderboard</button>
+
                     </div>
                   </div>
                 </div><div class="cards_item float-left">
@@ -203,5 +212,163 @@
     <script src="../js/popper.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/main.js"></script>
+    <script>
+      let publicLeagueDiv = document.getElementById('publicDiv');
+      let privateLeagueDiv = document.getElementById('privateDiv');
+
+      let publicLeagues = [{
+        leagueCode:"1233",
+          resource: "stages",
+          id: 2870,
+          league_id: 3,
+          season_id: 857,
+          name: "India tour of South Africa",
+          code: "ISA",
+          type: "league",
+          standings: false,
+          updated_at: "2021-09-11T13:38:50.000000Z",
+        },
+        {
+        leagueCode:"1237",
+
+          resource: "stages",
+          id: 2870,
+          league_id: 3,
+          season_id: 857,
+          name: "India tour of South Africa",
+          code: "ISA",
+          type: "league",
+          standings: false,
+          updated_at: "2021-09-11T13:38:50.000000Z",
+        },
+        {
+        leagueCode:"123",
+
+          resource: "leagues",
+          id: 5,
+          season_id: 830,
+          country_id: 98,
+          name: "Big Bash League",
+          code: "BBL",
+          image_path:
+            "https://cdn.sportmonks.com/images/cricket/leagues/5/5.png",
+          type: "league",
+          updated_at: "2021-07-14T19:49:33.000000Z",
+        }];
+
+      let privateLeagues = [{
+        leagueCode:"12",
+
+          resource: "stages",
+          id: 2870,
+          league_id: 3,
+          season_id: 857,
+          name: "India tour of South Africa",
+          code: "ISA",
+          type: "league",
+          standings: false,
+          updated_at: "2021-09-11T13:38:50.000000Z",
+        },
+        {
+        leagueCode:"233",
+          resource: "stages",
+          id: 2870,
+          league_id: 3,
+          season_id: 857,
+          name: "India tour of South Africa",
+          code: "ISA",
+          type: "league",
+          standings: false,
+          updated_at: "2021-09-11T13:38:50.000000Z",
+        },
+        {
+        leagueCode:"13",
+          resource: "leagues",
+          id: 5,
+          season_id: 830,
+          country_id: 98,
+          name: "Big Bash League",
+          code: "BBL",
+          image_path:
+            "https://cdn.sportmonks.com/images/cricket/leagues/5/5.png",
+          type: "league",
+          updated_at: "2021-07-14T19:49:33.000000Z",
+        }];
+
+        publicLeagueDiv.innerHTML = "";
+      publicLeagues.forEach((league) => {
+        let leagueContent =
+          league.league_id == 3
+            ? "T20 Internationals"
+            : "Australian Cricket League";
+        let image_path = league.image_path
+          ? league.image_path
+          : "https://cdn.sportmonks.com/images/cricket/leagues/3/3.png";
+        let league_id = league.league_id ? league.league_id : league.id;
+        let stage_id =
+          league.league_id && league.league_id == 3 ? league.id : "";
+        publicLeagueDiv.innerHTML +=
+          '<div class="cards_item float-left">' +
+          '<div class="card">' +
+          '  <div class="card_image">' +
+          '    <img src="' +
+          image_path +
+          '" />' +
+          "  </div>" +
+          '<div class="card_content">' +
+          '  <h2 class="card_title">' +
+          league.name +
+          "</h2>" +
+          '  <p class="card_text">'+leagueContent+'</p>' +
+          '  <form action="/leagues/'+league.leagueCode+'" method="get">' +
+          '    <button class="btn card_btn">Compete</button>' +
+          "  </form>" +
+          '  <form action="/leagues/leaderboard/'+league.leagueCode+'" method="get">' +
+          '    <button class="btn card_btn">Leaderboard</button>' +
+          "  </form>" +
+          "      </div>" +
+          "    </div>" +
+          "</div>";
+      });
+      
+      privateLeagueDiv.innerHTML = "";
+      privateLeagues.forEach((league) => {
+        let leagueContent =
+          league.league_id == 3
+            ? ("T20 Internationals" + ", "+league.leagueCode)
+            : ("Australian Cricket League" + ", "+league.leagueCode);
+        let image_path = league.image_path
+          ? league.image_path
+          : "https://cdn.sportmonks.com/images/cricket/leagues/3/3.png";
+        let league_id = league.league_id ? league.league_id : league.id;
+        let stage_id =
+          league.league_id && league.league_id == 3 ? league.id : "";
+        privateLeagueDiv.innerHTML +=
+          '<div class="cards_item float-left">' +
+          '<div class="card">' +
+          '  <div class="card_image">' +
+          '    <img src="' +
+          image_path +
+          '" />' +
+          "  </div>" +
+          '<div class="card_content">' +
+          '  <h2 class="card_title">' +
+          league.name +
+          "</h2>" +
+          '  <p class="card_text">'+leagueContent+'</p>' +
+          '  <form action="/leagues/'+league.leagueCode+'" method="get">' +
+          '    <button class="btn card_btn">Compete</button>' +
+          "  </form>" +
+          '  <form action="/leagues/leaderboard'+league.leagueCode+'" method="get">' +
+          '    <button class="btn card_btn">Leaderboard</button>' +
+          "  </form>" +
+          "      </div>" +
+          "    </div>" +
+          "</div>";
+      });
+
+
+    </script>
+
   </body>
 </html>
