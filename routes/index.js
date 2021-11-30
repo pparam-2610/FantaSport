@@ -125,11 +125,55 @@ router.get("/stages",async (req, res) => {//All Stages (Isme se select karke cre
   
 });
 
-router.get("/upcoming", (req, res) => {
-  //   res.send(
-  //     "Idhar upcoming matches pel sakte hai which will redirect to its respective league"
-  //   );
-  res.render("upcoming");
+router.get("/upcoming", async(req, res) => {
+  let data;
+  let stageArr = [];
+  let today = new Date();
+  let after = new Date(today);
+  after.setDate(after.getDate() + 20)
+  let dd = today.getDate();
+  let mm = today.getMonth()+1; 
+  let yyyy = today.getFullYear();
+  let dd1 = after.getDate();
+  let mm1 = after.getMonth()+1; 
+  let yyyy1 = after.getFullYear();
+  if(dd<10) dd='0'+dd; 
+  if(mm<10) mm='0'+mm;
+  today = yyyy+'-'+mm+'-'+dd;
+  if(dd1<10) dd1='0'+dd1; 
+  if(mm1<10) mm1='0'+mm1;
+  after = yyyy1+'-'+mm1+'-'+dd1;
+
+  let config = {
+    method: 'get',
+    url: 'https://cricket.sportmonks.com/api/v2.0/fixtures?api_token='+ process.env.API_KEY + '&sort=starting_at&filter[starts_between]='+today+','+after,
+    headers: {}
+  };
+  
+  await axios(config)
+  .then(function (response) {
+    data = response.data.data;
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+  data.forEach((e)=> {
+    if(!stageArr.includes(e.stage_id)) stageArr.push(e.stage_id);
+  });
+  for(let i=0; i<stageArr.length; i++){
+    let leagues = await League.find({ stageId: stageArr[i] });
+    let leagues1 = await League.findOne({ stageId: stageArr[i], private: false });
+    // console.log(leagues1);
+    if(leagues.length == 0) {
+      data.filter( fixture => fixture.stage_id != stageArr[i] );
+    } else{
+      data.forEach((e)=> {
+        if(e.stage_id == stageArr[i]) e.leagueCode = (leagues1? leagues1.leagueCode : "");
+      })
+    }
+  }
+  console.log("Data: ",data)
+  res.render("upcoming", { data: data });
 });
 
 module.exports = router;
