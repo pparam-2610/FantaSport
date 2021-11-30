@@ -115,7 +115,8 @@
           "  </div>" +
           '<div class="card_content">' +
           '  <h2 class="card_title">' +
-          team.fixtureDetails.name +
+          team.fixtureDetails.name + " - "+
+          (team.fixtureDetails.leagueType? team.fixtureDetails.leagueType : "Private League") +
           "</h2>" +
           '  <p class="card_text">' +
           teamContent +

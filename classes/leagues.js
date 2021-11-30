@@ -260,7 +260,7 @@ class publicLeagues{
         return newLeague1;
     };
     static async getPublicLeagues(userDetails){
-        let publicLeagues = await League.find({users : userDetails._id, private: false});
+        let publicLeagues = await League.find({private: false});
         return publicLeagues;
     }
     static async joinPublicLeague(leagueDetails){

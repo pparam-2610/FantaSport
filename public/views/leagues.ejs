@@ -305,45 +305,45 @@
       let publicLeagueDiv = document.getElementById('publicDiv');
       let privateLeagueDiv = document.getElementById('privateDiv');
 
-      let publicLeagues = [{
-        leagueCode:"1233",
-          resource: "stages",
-          id: 2870,
-          league_id: 3,
-          season_id: 857,
-          name: "India tour of South Africa",
-          code: "ISA",
-          type: "league",
-          standings: false,
-          updated_at: "2021-09-11T13:38:50.000000Z",
-        },
-        {
-        leagueCode:"1237",
+      // let publicLeagues = [{
+      //   leagueCode:"1233",
+      //     resource: "stages",
+      //     id: 2870,
+      //     league_id: 3,
+      //     season_id: 857,
+      //     name: "India tour of South Africa",
+      //     code: "ISA",
+      //     type: "league",
+      //     standings: false,
+      //     updated_at: "2021-09-11T13:38:50.000000Z",
+      //   },
+      //   {
+      //   leagueCode:"1237",
 
-          resource: "stages",
-          id: 2870,
-          league_id: 3,
-          season_id: 857,
-          name: "India tour of South Africa",
-          code: "ISA",
-          type: "league",
-          standings: false,
-          updated_at: "2021-09-11T13:38:50.000000Z",
-        },
-        {
-        leagueCode:"123",
+      //     resource: "stages",
+      //     id: 2870,
+      //     league_id: 3,
+      //     season_id: 857,
+      //     name: "India tour of South Africa",
+      //     code: "ISA",
+      //     type: "league",
+      //     standings: false,
+      //     updated_at: "2021-09-11T13:38:50.000000Z",
+      //   },
+      //   {
+      //   leagueCode:"123",
 
-          resource: "leagues",
-          id: 5,
-          season_id: 830,
-          country_id: 98,
-          name: "Big Bash League",
-          code: "BBL",
-          image_path:
-            "https://cdn.sportmonks.com/images/cricket/leagues/5/5.png",
-          type: "league",
-          updated_at: "2021-07-14T19:49:33.000000Z",
-        }];
+      //     resource: "leagues",
+      //     id: 5,
+      //     season_id: 830,
+      //     country_id: 98,
+      //     name: "Big Bash League",
+      //     code: "BBL",
+      //     image_path:
+      //       "https://cdn.sportmonks.com/images/cricket/leagues/5/5.png",
+      //     type: "league",
+      //     updated_at: "2021-07-14T19:49:33.000000Z",
+      //   }];
 
       // let privateLeagues = [{
       //   leagueCode:"12",
@@ -387,19 +387,19 @@
         console.log('The userData is: ',userData);
       
       let privateLeagues = <%-JSON.stringify(privateLeagues) %>
+      let publicLeagues =  <%-JSON.stringify(publicLeagues) %>
 
         publicLeagueDiv.innerHTML = "";
       publicLeagues.forEach((league) => {
         let leagueContent =
-          league.league_id == 3
-            ? "T20 Internationals"
-            : "Australian Cricket League";
-        let image_path = league.image_path
-          ? league.image_path
+          league.leagueId == 3
+          ? ("T20 Internationals" + " , "+league.leagueCode)
+            : ("Australian Cricket League" + " , "+league.leagueCode);
+            let image_path = league.displayDetails.image_path
+          ? league.displayDetails.image_path
           : "https://cdn.sportmonks.com/images/cricket/leagues/3/3.png";
         let league_id = league.league_id ? league.league_id : league.id;
-        let stage_id =
-          league.league_id && league.league_id == 3 ? league.id : "";
+        let stage_id = league.stageId;
         publicLeagueDiv.innerHTML +=
           '<div class="cards_item float-left">' +
           '<div class="card">' +
