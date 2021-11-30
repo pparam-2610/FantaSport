@@ -6,8 +6,9 @@ class leagues{
     static async getLeagueMatches(leagueDetails) {
 
         let today = new Date();
+        today.setDate(today.getDate() - 20)
         let after = new Date(today);
-        after.setDate(after.getDate() + 20)
+        after.setDate(after.getDate() + 40)
         let dd = today.getDate();
         let mm = today.getMonth()+1; 
         let yyyy = today.getFullYear();
@@ -20,6 +21,8 @@ class leagues{
         if(dd1<10) dd1='0'+dd1; 
         if(mm1<10) mm1='0'+mm1;
         after = yyyy1+'-'+mm1+'-'+dd1;
+
+        console.log(today, after);
 
         let dbLeagueData = await League.findOne({ leagueCode: leagueDetails.leagueCode });
         console.log("DB Data: ", dbLeagueData);
@@ -34,6 +37,7 @@ class leagues{
         await axios(config)
           .then(function (response) {
             fixtureData = response.data.data;
+            console.log("fsahoifsoisa", fixtureData);
             for(let i=0; i < fixtureData.length ; i++){
                 fixtureData[i].leagueDetails = dbLeagueData.displayDetails;
             }
@@ -130,6 +134,19 @@ class leagues{
         await newTeam.save();
         console.log(newTeam);
         return newTeam;
+    };
+    static async getLeaderboard(leagueData){
+        // let leaderboard = await Team.aggregate([{"$match": { "leagueCode" : leagueData.leagueCode }}, {
+        //   "$group": {
+        //     "_id" : "user",
+        //     "total" : { "$sum": "points" }
+        //   }
+        // }], (err,res)=> {console.log(res)});
+        let leagueTeams = await Team.find({ leagueCode: leagueData.leagueCode });
+        let leagueUsers = [];
+    
+        console.log("Leaderboard: ",leaderboard);
+        return leaderboard;
     }
 }
 

@@ -47,12 +47,14 @@ class Teams{
             bowlingStats.push({ runs: bowler.runs, wickets: bowler.wickets, rate: bowler.rate });
         });
 
-        console.log(battingArray, battingStats, bowlingArray, bowlingStats);
+        // console.log(battingArray, battingStats, bowlingArray, bowlingStats);
         
         let fixtureTeams = await Team.find({ fixtureId: fixtureDetails.fixtureId });
 
-        fixtureTeams.forEach((team)=> {
-            team.players.forEach((player)=> {
+        await Promise.all(fixtureTeams.map(async (team,i)=> {
+            let totalPoints = 0;
+            let playerArray = team.players;
+            playerArray.map(async (player)=> {
                 if(battingArray.includes(player.id)) player.batStats = battingStats[battingArray.indexOf(player.id)];
                 if(bowlingArray.includes(player.id)) player.bowlStats = bowlingStats[bowlingArray.indexOf(player.id)];
                 let playerPoints = 0;
@@ -85,12 +87,24 @@ class Teams{
                         playerPoints += 6;
                     }
                 }
+                player.points = playerPoints;
+                totalPoints += playerPoints;
+                // await player.save();
             })
-        })
+            console.log("Player Array", i, playerArray);
+            team.players = playerArray;
+            team.points = totalPoints;
+            // team.points = 500;
+            // await team.save();
+            await Team.findByIdAndUpdate({ _id: team._id },{ "$set": { points : totalPoints, players : playerArray } });
+            console.log(team.players, "<---Players in Team");
+            let teamData123 = await Team.findOne({ _id: team._id });
+            console.log("db Wala: ", teamData123);
+            return team;
+        }))
 
-        for(let j=0; j<fixtureTeams.length; j++){
-            await fixtureTeams[j].save();
-        }
+        // await fixtureTeams[0].save();
+        
 
         console.log("All Teams: ", fixtureTeams);
 
