@@ -149,6 +149,7 @@
       let fixtureId = <%- JSON.stringify(teamDetails.fixtureId) %>
       let leagueCode = <%- JSON.stringify(teamDetails.leagueCode) %>
 
+      console.log('The team 1 is: ',team1);
       let team1Div = document.getElementById("team1");
       team1Div.innerHTML = "";
       let team2Div = document.getElementById("team2");
@@ -310,7 +311,7 @@
       }
 
       function submitTeam() {
-        if (sufficientCondition()) {
+        if (sufficientCondition() && false) {
           let playerData = [];
           playersSelected.map((id) => {
             playerData.push(getPlayerDetails(id));
@@ -326,7 +327,10 @@
             body: JSON.stringify({ playerData : playerData, fixtureId : fixtureId, leagueCode : leagueCode }),
           })
             .then(response => response.json())
-            .then(json => console.log(json))
+            .then(json => {
+              console.log(json);
+              window.location.href = "http://localhost:8000/teams?status=true";
+            })
             .catch(err => console.log('Request Failed', err));
 
           // Here post the team players and fixtureId, LeagueId all the required Data

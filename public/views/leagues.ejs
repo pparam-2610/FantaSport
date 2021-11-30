@@ -77,6 +77,7 @@
             <% } %>
           </ul>
 
+          <% if (userData.admin == false) {%>
           <div class="mb-5">
             <h3 class="h6 mb-3">Join a team</h3>
             <form action="/leagues/joinLeague" class="subscribe-form" method="post">
@@ -95,6 +96,7 @@
               <button  class="btn btn-secondary">Join</button>
             </form>
           </div>
+          <% } %>
 
           <div class="footer">
             
@@ -391,6 +393,12 @@
 
         publicLeagueDiv.innerHTML = "";
       publicLeagues.forEach((league) => {
+        let buttonData = "";
+        if(userData.admin){
+          buttonData = "";
+        } else{
+          buttonData = '<button class="btn card_btn">Compete</button>';
+        }
         let leagueContent =
           league.leagueId == 3
           ? ("T20 Internationals" + " , "+league.leagueCode)
@@ -414,7 +422,7 @@
           "</h2>" +
           '  <p class="card_text">'+leagueContent+'</p>' +
           '  <form action="/leagues/'+league.leagueCode+'" method="get">' +
-          '    <button class="btn card_btn">Compete</button>' +
+          buttonData +
           "  </form>" +
           '  <form action="/leagues/leaderboard/'+league.leagueCode+'" method="get">' +
           '    <button class="btn card_btn">Leaderboard</button>' +

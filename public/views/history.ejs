@@ -87,11 +87,99 @@
       </div>
     </div>
 
+    <div class="container">
+      <!-- Button to trigger modal -->
+      <a
+        href="#myModal"
+        class="btn btn-primary"
+        data-toggle="modal"
+        id="modalAnchor"
+        >Launch modal</a
+      >
+
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="myModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="myModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <!-- <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-hidden="true"
+                  >
+                    x
+                  </button> -->
+              <h4 class="modal-title">Yippie!!</h4>
+            </div>
+            <div class="modal-body">
+              Your new team has been added successfully for the league Thank
+              you!!!! and Continue yipping
+              <!-- <span style="font-weight: bold" id="modalCode">XXXX</span> -->
+            </div>
+            <!-- <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-default"
+                    data-dismiss="modal"
+                  >
+                    Close
+                  </button> -->
+            <!-- <button type="button" class="btn btn-primary">
+                    Save changes
+                  </button>
+                </div> -->
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+    </div>
+
     <script src="../js/jquery.min.js"></script>
     <script src="../js/popper.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/main.js"></script>
     <script>
+
+      let userData = <%-JSON.stringify(userData) %>
+      console.log('The userData is: ',userData);
+
+      let urlString =
+      window.location.href;
+      // "https://www.example.com/login.php?a=GeeksforGeeks&b=500&c=Hello Geeks"
+              let paramString = urlString.split('?')[1];
+              let queryString = new URLSearchParams(paramString);
+              console.log('The entries are: ',queryString.entries(),window.location.href);
+              let modalAnchor = document.getElementById('modalAnchor');
+              for(let pair of queryString.entries()) {
+                  console.log("Key is:" + pair[0]);
+                  if(pair[0] == 'status'){
+
+                    console.log("Value is:" + pair[1]);
+                    // let modalCode = document.getElementById('modalCode');
+                    // modalCode.innerHTML = pair[1];
+                    modalAnchor.click();
+
+                  } else{
+                    // console.log('heheheh');
+                    // let modalAnchor = document.getElementById('modalAnchor');
+                    // modalAnchor.style.display = "none";
+                  }
+                }
+                modalAnchor.style.display = "none";
+
+
+
+
 
       // kaunse league ke hai woh team woh bhi dikhana hai toh create Team league name bhi store karna hai
       let yourTeams = <%- JSON.stringify(teamHistory) %>;
