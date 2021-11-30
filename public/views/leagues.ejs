@@ -40,9 +40,9 @@
           </button>
         </div> -->
         <div class="p-4">
-          <h1><a href="index.html" class="logo">Flash</a></h1>
+          <h1><a href="index.html" class="logo">FantaSport</a></h1>
           <ul class="list-unstyled components mb-5">
-            <li>
+            <li >
               <a href="/stages"><span class="fa fa-home mr-3"></span> Home</a>
             </li>
             <li class="active">
@@ -50,49 +50,54 @@
                 ><span class="fa fa-user mr-3"></span> League</a
               >
             </li>
+            <% if (userData.admin == false) { %>
             <li>
               <a href="/teams"
                 ><span class="fa fa-briefcase mr-3"></span> History</a
               >
             </li>
+
             <li>
               <a href="/upcoming"
                 ><span class="fa fa-sticky-note mr-3"></span> Upcoming</a
               >
             </li>
-            <li>
+
+            <!-- <li>
               <a href="/user"
                 ><span class="fa fa-paper-plane mr-3"></span> Profile</a
               >
+            </li> -->
+            <% } else {%>
+            <li>
+              <a href="/upcoming"
+                ><span class="fa fa-sticky-note mr-3"></span> Upcoming</a
+              >
             </li>
+            <% } %>
           </ul>
 
           <div class="mb-5">
-            <h3 class="h6 mb-3">Subscribe for newsletter</h3>
-            <form action="#" class="subscribe-form">
+            <h3 class="h6 mb-3">Join a team</h3>
+            <form action="/leagues/joinLeague" class="subscribe-form" method="post">
               <div class="form-group d-flex">
                 <div class="icon"><span class="icon-paper-plane"></span></div>
                 <input
                   type="text"
                   class="form-control"
-                  placeholder="Enter Email Address"
+                  placeholder="Enter League Code"
+                  required
+                  name = "leagueCode"
+                  style="color: white;"
                 />
+                <br/>
               </div>
+              <button  class="btn btn-secondary">Join</button>
             </form>
           </div>
 
           <div class="footer">
-            <p>
-              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-              Copyright &copy;
-              <script>
-                document.write(new Date().getFullYear());
-              </script>
-              All rights reserved | This template is made with
-              <i class="icon-heart" aria-hidden="true"></i> by
-              <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
-              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            </p>
+            
           </div>
         </div>
       </nav>
@@ -108,12 +113,14 @@
       <ul>
         <li title="Features"><label for="tab1" role="button"><svg viewBox="0 0 24 24"><path d="M14,2A8,8 0 0,0 6,10A8,8 0 0,0 14,18A8,8 0 0,0 22,10H20C20,13.32 17.32,16 14,16A6,6 0 0,1 8,10A6,6 0 0,1 14,4C14.43,4 14.86,4.05 15.27,4.14L16.88,2.54C15.96,2.18 15,2 14,2M20.59,3.58L14,10.17L11.62,7.79L10.21,9.21L14,13L22,5M4.93,5.82C3.08,7.34 2,9.61 2,12A8,8 0 0,0 10,20C10.64,20 11.27,19.92 11.88,19.77C10.12,19.38 8.5,18.5 7.17,17.29C5.22,16.25 4,14.21 4,12C4,11.7 4.03,11.41 4.07,11.11C4.03,10.74 4,10.37 4,10C4,8.56 4.32,7.13 4.93,5.82Z"/>
     </svg><br><span>Public</span></label></li>
+    <% if(userData.admin == false) {%>
         <li title="Delivery Contents"><label for="tab2" role="button"><svg viewBox="0 0 24 24"><path d="M2,10.96C1.5,10.68 1.35,10.07 1.63,9.59L3.13,7C3.24,6.8 3.41,6.66 3.6,6.58L11.43,2.18C11.59,2.06 11.79,2 12,2C12.21,2 12.41,2.06 12.57,2.18L20.47,6.62C20.66,6.72 20.82,6.88 20.91,7.08L22.36,9.6C22.64,10.08 22.47,10.69 22,10.96L21,11.54V16.5C21,16.88 20.79,17.21 20.47,17.38L12.57,21.82C12.41,21.94 12.21,22 12,22C11.79,22 11.59,21.94 11.43,21.82L3.53,17.38C3.21,17.21 3,16.88 3,16.5V10.96C2.7,11.13 2.32,11.14 2,10.96M12,4.15V4.15L12,10.85V10.85L17.96,7.5L12,4.15M5,15.91L11,19.29V12.58L5,9.21V15.91M19,15.91V12.69L14,15.59C13.67,15.77 13.3,15.76 13,15.6V19.29L19,15.91M13.85,13.36L20.13,9.73L19.55,8.72L13.27,12.35L13.85,13.36Z" />
     </svg><br><span>Private</span></label></li>
-     
+    <% } %>
       </ul>
-      
+       <% if(userData.admin == false) {%>
       <div class="slider"><div class="indicator"></div></div>
+       <% } %>
       <div class="content">
         <section>
             <div class = "league-grid-div" id = "publicDiv">
@@ -136,6 +143,7 @@
           <!-- <h2>Features</h2> -->
           <!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea dolorem sequi, quo tempore in eum obcaecati atque quibusdam officiis est dolorum minima deleniti ratione molestias numquam. Voluptas voluptates quibusdam cum? -->
         </section>
+        <% if(userData.admin == false){ %>
         <section>
             <!-- <h2>Delivery Contents</h2> -->
             <!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem quas adipisci a accusantium eius ut voluptatibus ad impedit nulla, ipsa qui. Quasi temporibus eos commodi aliquid impedit amet, similique nulla.</section> -->
@@ -203,9 +211,65 @@
                 </div>
             </div>
         <section>
+          <% } %>
       </div>
     </div>
       </div>
+    </div>
+    <div class="container">
+      <!-- Button to trigger modal -->
+      <a
+        href="#myModal"
+        class="btn btn-primary"
+        data-toggle="modal"
+        id="modalAnchor"
+        >Launch modal</a
+      >
+
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="myModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="myModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <!-- <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-hidden="true"
+                  >
+                    x
+                  </button> -->
+              <h4 class="modal-title">Yippie!!</h4>
+            </div>
+            <div class="modal-body">
+               You have been added to the League and now you can compete with your frineds/family.
+              <span style="font-weight: bold" id="modalCode">XXXX</span>
+            </div>
+            <!-- <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-default"
+                    data-dismiss="modal"
+                  >
+                    Close
+                  </button> -->
+            <!-- <button type="button" class="btn btn-primary">
+                    Save changes
+                  </button>
+                </div> -->
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
     </div>
 
     <script src="../js/jquery.min.js"></script>
@@ -213,6 +277,31 @@
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/main.js"></script>
     <script>
+
+       let urlString =
+      window.location.href;
+      // "https://www.example.com/login.php?a=GeeksforGeeks&b=500&c=Hello Geeks"
+              let paramString = urlString.split('?')[1];
+              let queryString = new URLSearchParams(paramString);
+              console.log('The entries are: ',queryString.entries(),window.location.href);
+              let modalAnchor = document.getElementById('modalAnchor');
+              for(let pair of queryString.entries()) {
+                  console.log("Key is:" + pair[0]);
+                  if(pair[0] == 'code'){
+
+                    console.log("Value is:" + pair[1]);
+                    let modalCode = document.getElementById('modalCode');
+                    modalCode.innerHTML = pair[1];
+                    modalAnchor.click();
+                   
+                  } else{
+                    // console.log('heheheh');
+                    // let modalAnchor = document.getElementById('modalAnchor');
+                    // modalAnchor.style.display = "none";
+                  }
+                }
+                modalAnchor.style.display = "none";
+
       let publicLeagueDiv = document.getElementById('publicDiv');
       let privateLeagueDiv = document.getElementById('privateDiv');
 
@@ -294,7 +383,9 @@
       //     type: "league",
       //     updated_at: "2021-07-14T19:49:33.000000Z",
       //   }];
-
+      let userData = <%-JSON.stringify(userData) %>
+        console.log('The userData is: ',userData);
+      
       let privateLeagues = <%-JSON.stringify(privateLeagues) %>
 
         publicLeagueDiv.innerHTML = "";

@@ -4,6 +4,16 @@
     <script src="//cdn.muicss.com/mui-0.10.3/js/mui.min.js"></script> -->
 
     <link href='../css/login.css' rel='stylesheet' type='text/css'>
+    <style>
+      .login-div{
+        width: 100%;
+        
+      }
+
+      body{
+        background-image: url('../img/mainBackground.jpg');
+      }
+    </style>
 </head>
 <body>
 
@@ -12,11 +22,11 @@
     <div class="nav">
       <ul class = "links">
         <li class="signin-active"><a class="btn">Sign in</a></li>
-        <li class="signup-inactive"><a class="btn">Sign up </a></li>
+        <!-- <li class="signup-inactive"><a class="btn">Sign up </a></li> -->
       </ul>
     </div>
-    <div ng-app ng-init="checked = false">
-				        <form class="form-signin" action="" method="post" name="form">
+    <div ng-app ng-init="checked = false" style="display: grid;align-items: center;justify-content: center;height: 65%;">
+				        <!-- <form class="form-signin" action="" method="post" name="form">
           <label for="username">Username</label>
           <input class="form-styling" type="text" name="username" placeholder=""/>
           <label for="password">Password</label>
@@ -24,13 +34,21 @@
           <input type="checkbox" id="checkbox"/>
           <label for="checkbox" ><span class="ui"></span>Keep me signed in</label>
           <div class="btn-animate">
-            <a class="btn-signin">Sign in</a>
           </div>
-        </form>
+        </form> -->
+        <!-- <a class="btn-signin">Sign in</a> -->
+        <div class = "login-div">
+
+          <div>
+
+            <img src="./img/login.png">
+          </div>
+           <a  href="/auth/google" class="btn-signup" style="text-decoration: none;">Sign In With Google</a>
+        </div>
       
         
         
-				        <form class="form-signup" action="" method="post" name="form">
+				        <!-- <form class="form-signup" action="" method="post" name="form">
           <label for="fullname">Full name</label>
           <input class="form-styling" type="text" name="fullname" placeholder=""/>
           <label for="email">Email</label>
@@ -39,8 +57,8 @@
           <input class="form-styling" type="text" name="password" placeholder=""/>
           <label for="confirmpassword">Confirm password</label>
           <input class="form-styling" type="text" name="confirmpassword" placeholder=""/>
-          <a ng-click="checked = !checked" class="btn-signup">Sign Up</a>
-				        </form>
+        </form>
+        <a  href="/auth/google" class="btn-signup">Sign Up</a>
       
             <div  class="success">
               <svg width="270" height="270" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -51,26 +69,26 @@
                 <div class="successtext">
                    <p> Thanks for signing up! Check your email for confirmation.</p>
                 </div>
-             </div>
-      </div>
+             </div> -->
+      <!-- </div> -->
       
-      <div class="forgot">
+      <!-- <div class="forgot"> -->
           <!-- <a href="#">Forgot your password?</a> -->
           <!-- jdjdj -->
-          <button><a href="/auth/google">SIGN IN WITH GOOGLE</a></button>
-         
+          <!-- <button><a href="/auth/google" class="btn btn-primary" color="black">SIGN IN WITH GOOGLE</a></button> -->
+         <!-- <a  href="/auth/google" class="btn-signup">Sign Up</a>
           
-        </div>
+        </div> -->
       
-      <div>
+      <!-- <div>
         <div class="cover-photo"></div>
         <div class="profile-photo"></div>
         <h1 class="welcome">Welcome, Chris</h1>
-        <a class="btn-goback" value="Refresh" onClick="history.go()">Go back</a>
+        <a class="btn-goback" value="Refresh" onClick="history.go()">Go back</a>-->
       </div>
-  </div>
+  </div> 
     
-  <a id="refresh" value="Refresh" onClick="history.go()">
+  <!-- <a id="refresh" value="Refresh" onClick="history.go()">
     <svg class="refreshicon"   version="1.1" id="Capa_1"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
          width="25px" height="25px" viewBox="0 0 322.447 322.447" style="enable-background:new 0 0 322.447 322.447;"
          xml:space="preserve">
@@ -81,7 +99,7 @@
                 c-6.566,2.134-10.16,9.186-8.027,15.751l14.74,45.368c1.715,5.283,6.615,8.642,11.885,8.642c1.279,0,2.582-0.198,3.865-0.614
                 l45.369-14.738C320.371,243.946,323.965,236.895,321.832,230.327z"/>
     </svg>
-  </a>
+  </a>-->
 </div>
     
 </body>
