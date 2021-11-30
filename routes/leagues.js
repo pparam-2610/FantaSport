@@ -5,7 +5,6 @@ const leagueController = require("../controllers/leagues");
 
 router.get("/", leagueController.displayLeagues);
 
-router.get("/:leagueCode", leagueController.displayLeaguesMatches);
 
 router.get("/createLeague", (req, res) => {
   res.send("Creates League ke liye page(if required)");
@@ -19,7 +18,11 @@ router.get(
   "/createTeam/:leagueCode/:fixtureId",
   leagueController.displayCreateTeam
 );
-
+  
 router.post("/createTeam", leagueController.createTeam);
+  
+router.post("/joinLeague", leagueController.joinLeague);
 
+router.get("/:leagueCode", leagueController.displayLeaguesMatches);
+  
 module.exports = router;

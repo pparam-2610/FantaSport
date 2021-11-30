@@ -26,10 +26,10 @@ const leagueSchema = new mongoose.Schema({
         type: String
     },
     endDate: {
-        type: Date
+        type: String
     },
     users: [{ 
-        type: Schema.Types.ObjectId, 
+        type: mongoose.Schema.Types.ObjectId, 
         ref: 'Users'
     }]
 })

@@ -107,58 +107,14 @@
     <script src="../js/main.js"></script>
     <script>
       // kaunse league ke hai woh team woh bhi dikhana hai toh create Team league name bhi store karna hai
-      let yourTeams = [
-        {
-          id: "12",
-          name: "India Tour of Australia",
-          resource: "fixtures",
-          fixtureId: 31718,
-          league_id: 3,
-          season_id: 507,
-          stage_id: 3071,
-          round: "2nd T20I",
-          localteam_id: 483,
-          visitorteam_id: 100,
-          starting_at: "2021-12-23T00:00:00.000000Z",
-          type: "T20I",
-          live: true,
-          status: "NS",
-          last_period: null,
-          note: "",
-          venue_id: 161,
-          leagueCode: "1234",
-        },
-        {
-          id: "123",
-          name: "Big Bash League",
-          resource: "fixtures",
-          fixtureId: 28088,
-          league_id: 5,
-          season_id: 830,
-          stage_id: 2696,
-          round: "1st Match",
-          localteam_id: 53,
-          visitorteam_id: 51,
-          starting_at: "2021-12-05T08:15:00.000000Z",
-          type: "T20",
-          live: false,
-          status: "NS",
-          last_period: null,
-          note: "",
-          venue_id: 6,
-          leagueCode: "5678",
-        },
-      ];
+      let yourTeams = <%- JSON.stringify(teamHistory) %>;
 
       let teamDiv = document.getElementById("teamDiv");
       teamDiv.innerHTML = "";
       yourTeams.forEach((team) => {
         // let leagueContent = league.league_id == 3 ? "1st T20I" : "";
-        let teamContent = team.round + ", " + team.starting_at.slice(0, 10)+", "+ team.leagueCode;
-        let image_path =
-          team.league_id == 5
-            ? "https://cdn.sportmonks.com/images/cricket/leagues/5/5.png"
-            : "https://cdn.sportmonks.com/images/cricket/leagues/3/3.png";
+        let teamContent = team.fixtureDetails.round + ", " + team.fixtureDetails.starting_at.slice(0, 10)+", "+ team.leagueCode;
+        let image_path = team.fixtureDetails.image_path? team.fixtureDetails.image_path : 'https://cdn.sportmonks.com/images/cricket/leagues/3/3.png';
         // let leagueCode = league.league_id ? league.league_id : league.id;
         // let stage_id =
         //   league.league_id && league.league_id == 3 ? league.id : "";
@@ -172,13 +128,13 @@
           "  </div>" +
           '<div class="card_content">' +
           '  <h2 class="card_title">' +
-          team.name +
+          team.fixtureDetails.name +
           "</h2>" +
           '  <p class="card_text">' +
           teamContent +
           "</p>" +
           '  <form action="/teams/' +
-          `${team.id}` +
+          `${team.teamId}` +
           '" method="get">' +
           '    <button class="btn card_btn">View Details</button>' +
           "  </form>" +

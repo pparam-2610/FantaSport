@@ -5,6 +5,34 @@ if (process.env.NODE_ENV !== "production") {
 const express = require("express");
 const router = express.Router();
 const axios = require("axios");
+const League = require("../models/leagues");
+const Users = require("../models/users");
+const Teams = require("../models/teams");
+
+router.get("/checkDbLeagues", async (req,res)=> {
+  // const updateLeague = await League.findOne({_id : '61a4fe6e65c97fbf630ae8e0'});
+  // updateLeague.users.push('61a23805202746fd7a3e8416');
+  // await updateLeague.save();
+  // res.send(updateLeague);
+  League.find({}, (err, leagues)=> {
+    if(err) throw err;
+    res.send(leagues);
+  });
+})
+
+router.get("/checkDbTeams", async (req,res)=> {
+  Teams.find({}, (err, teams)=> {
+    if(err) throw err;
+    res.send(teams);
+  });
+})
+
+router.get("/checkDbUsers", async (req,res)=> {
+  Users.find({}, (err, users)=> {
+    if(err) throw err;
+    res.send(users);
+  });
+})
 
 router.get("/", (req, res) => {
   // res.send('Hello Bhushan')
