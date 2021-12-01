@@ -1,5 +1,7 @@
 const League = require('../models/leagues');
 const Team = require('../models/teams');
+const User = require('../models/users');
+const mongoose = require('mongoose');
 const axios = require("axios");
 
 class leagues{
@@ -135,6 +137,10 @@ class leagues{
         console.log(newTeam);
         return newTeam;
     };
+    static async viewMembers(leagueCode){
+      let leagueTeams = await League.find({ leagueCode: leagueData.leagueCode });
+      return leagueTeams.users;
+    };
     static async getLeaderboard(leagueData){
         // let leaderboard = await Team.aggregate([{"$match": { "leagueCode" : leagueData.leagueCode }}, {
         //   "$group": {
@@ -142,12 +148,32 @@ class leagues{
         //     "total" : { "$sum": "points" }
         //   }
         // }], (err,res)=> {console.log(res)});
+        let users = this.viewMembers(leagueData.leagueCode);
+        console.log(users);
         let leagueTeams = await Team.find({ leagueCode: leagueData.leagueCode });
-        let leagueUsers = [];
-    
-        console.log("Leaderboard: ",leaderboard);
-        return leaderboard;
+        let leagueUsers = {};
+        leagueTeams.forEach((team)=>{
+          leagueUsers[team.user]=0;
+        })
+        leagueTeams.forEach((team)=> {
+          leagueUsers[team.user]+=team.points;
+        })
+
+        let data = [];
+        for (const uid in leagueUsers) {
+          console.log(`${uid}: ${leagueUsers[uid]}`);
+          let user = await User.findOne({ _id: mongoose.Types.ObjectId(uid) })
+          data.push({ user: user, points: leagueUsers[uid] })
+        }
+
+        data.sort((a, b) => {
+          return b.points - a.points;
+      });
+
+        console.log("Leaderboard: ", data);
+        return data;
     }
+
 }
 
 class privateLeagues{

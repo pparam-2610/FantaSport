@@ -68,11 +68,11 @@ exports.joinLeague = async (req, res) => {
   // res.send("Join League");
 };
 
-exports.leagueLeaderboard = (req, res) => {
+exports.leagueLeaderboard = async(req, res) => {
   //   res.send(`Display Leaderboard of league code ${req.params.leagueCode}`);
   let leagueCode = req.params.leagueCode;
-  let leaderboard = League.getLeaderboard({ leagueCode: leagueCode });
-  res.render("leaderboard", { leagueCode: leagueCode });
+  let leaderboard = await League.getLeaderboard({ leagueCode: leagueCode });
+  res.render("leaderboard", { leaderboard: leaderboard, user: req.user });
 };
 
 exports.displayCreateTeam = async (req, res) => {

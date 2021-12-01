@@ -100,7 +100,8 @@
         <section class="main-content">
           <div class="container">
             <!-- <h1>Top Gainers</h1> -->
-            <h3>Your Rank: <span style="padding-left: 10px">3</span></h3>
+            <% if(user.admin == false){ %>
+            <h3>Your Rank: <span style="padding-left: 10px" id="rankNo">-</span></h3>
             <br />
             <br />
 
@@ -108,35 +109,19 @@
               <div class="col-sm-4">
                 <div class="leaderboard-card leaderboard-card--first">
                   <div class="leaderboard-card__top">
-                    <h3 class="text-center">$1,254</h3>
+                    <h3 class="text-center" id="points">-</h3>
                   </div>
                   <div class="leaderboard-card__body">
                     <div class="text-center">
-                      <img
-                        src="../../img/user1.jpg"
-                        class="circle-img mb-2"
-                        alt="User Img"
-                      />
-                      <h5 class="mb-0">Kiran Acharya</h5>
-                      <p class="text-muted mb-0">@kiranacharyaa</p>
+                      <h5 class="mb-0" id="name123">-</h5>
+                      <p class="text-muted mb-0" id="emailId">-</p>
                       <hr />
-                      <div
-                        class="
-                          d-flex
-                          justify-content-between
-                          align-items-center
-                        "
-                      >
-                        <span><i class="fa fa-map-marker"></i> Bangalore</span>
-                        <!-- <button class="btn btn-outline-success btn-sm">
-                          Congratulate
-                        </button> -->
-                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+            <% } %>
 
             <h4>All Users</h4>
 
@@ -145,152 +130,31 @@
                 <tr>
                   <th>User</th>
                   <th>Status</th>
-                  <th>Location</th>
                   <th>Email</th>
                   <!-- <th>Congratulate</th> -->
                 </tr>
               </thead>
               <tbody>
+                <% for(let i=0; i<leaderboard.length; i++){ %>
                 <tr>
                   <td>
                     <div class="d-flex align-items-center">
-                      <img
-                        src="../../img/user1.jpg"
-                        class="circle-img circle-img--small mr-2"
-                        alt="User Img"
-                      />
                       <div class="user-info__basic">
-                        <h5 class="mb-0">Kiran Acharya</h5>
-                        <p class="text-muted mb-0">@kiranacharyaa</p>
+                        <h5 class="mb-0"><%= leaderboard[i].user.name %></h5>
                       </div>
                     </div>
                   </td>
                   <td>
                     <div class="d-flex align-items-baseline">
-                      <h4 class="mr-1">$1,253</h4>
-                      <small class="text-success"
-                        ><i class="fa fa-arrow-up"></i>5%</small
-                      >
+                      <h4 class="mr-1"><%= leaderboard[i].points %></h4>
                     </div>
                   </td>
-                  <td>Bangalore</td>
-                  <td>kiran@kiranmail.com</td>
+                  <td><%= leaderboard[i].user.userId %></td>
                   <!-- <td>
                     <button class="btn btn-success btn-sm">Congratulate</button>
                   </td> -->
                 </tr>
-                <tr>
-                  <td>
-                    <div class="d-flex align-items-center">
-                      <img
-                        src="../../img/user2.jpg"
-                        class="circle-img circle-img--small mr-2"
-                        alt="User Img"
-                      />
-                      <div class="user-info__basic">
-                        <h5 class="mb-0">Sandeep Sandy</h5>
-                        <p class="text-muted mb-0">@sandeep</p>
-                      </div>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="d-flex align-items-baseline">
-                      <h4 class="mr-1">$1,051</h4>
-                      <small class="text-success"
-                        ><i class="fa fa-arrow-up"></i>5%</small
-                      >
-                    </div>
-                  </td>
-                  <td>Bangalore</td>
-                  <td>sandeep@sandeepmail.com</td>
-                  <!-- <td>
-                    <button class="btn btn-success btn-sm">Congratulate</button>
-                  </td> -->
-                </tr>
-                <tr>
-                  <td>
-                    <div class="d-flex align-items-center">
-                      <img
-                        src="../../img/user3.jpg"
-                        class="circle-img circle-img--small mr-2"
-                        alt="User Img"
-                      />
-                      <div class="user-info__basic">
-                        <h5 class="mb-0">John Doe</h5>
-                        <p class="text-muted mb-0">@johndoe</p>
-                      </div>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="d-flex align-items-baseline">
-                      <h4 class="mr-1">$1,012</h4>
-                      <small class="text-success"
-                        ><i class="fa fa-arrow-up"></i>5%</small
-                      >
-                    </div>
-                  </td>
-                  <td>Bangalore</td>
-                  <td>kiran@kiranmail.com</td>
-                  <!-- <td>
-                    <button class="btn btn-success btn-sm">Congratulate</button>
-                  </td> -->
-                </tr>
-                <tr>
-                  <td>
-                    <div class="d-flex align-items-center">
-                      <img
-                        src="../../img/user4.jpg"
-                        class="circle-img circle-img--small mr-2"
-                        alt="User Img"
-                      />
-                      <div class="user-info__basic">
-                        <h5 class="mb-0">John Noakes</h5>
-                        <p class="text-muted mb-0">@johnnoakes</p>
-                      </div>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="d-flex align-items-baseline">
-                      <h4 class="mr-1">$986</h4>
-                      <small class="text-success"
-                        ><i class="fa fa-arrow-up"></i>5%</small
-                      >
-                    </div>
-                  </td>
-                  <td>Bangalore</td>
-                  <td>kiran@kiranmail.com</td>
-                  <!-- <td>
-                    <button class="btn btn-success btn-sm">Congratulate</button>
-                  </td> -->
-                </tr>
-                <tr>
-                  <td>
-                    <div class="d-flex align-items-center">
-                      <img
-                        src="../../img/user5.jpg"
-                        class="circle-img circle-img--small mr-2"
-                        alt="User Img"
-                      />
-                      <div class="user-info__basic">
-                        <h5 class="mb-0">Tom harry</h5>
-                        <p class="text-muted mb-0">@tomharry</p>
-                      </div>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="d-flex align-items-baseline">
-                      <h4 class="mr-1">$951</h4>
-                      <small class="text-success"
-                        ><i class="fa fa-arrow-up"></i>5%</small
-                      >
-                    </div>
-                  </td>
-                  <td>Bangalore</td>
-                  <td>kiran@kiranmail.com</td>
-                  <!-- <td>
-                    <button class="btn btn-success btn-sm">Congratulate</button>
-                  </td> -->
-                </tr>
+                <% } %>
               </tbody>
             </table>
           </div>
@@ -302,5 +166,17 @@
     <script src="../../js/popper.js"></script>
     <script src="../../js/bootstrap.min.js"></script>
     <script src="../../js/main.js"></script>
+    <script>
+      let userData = <%- JSON.stringify(user) %>;
+      let leaderboard = <%- JSON.stringify(leaderboard) %>
+      leaderboard.map((scores, i)=> {
+        if(scores.user.userId == userData.userId){
+          document.getElementById('rankNo').innerText = i+1;
+          document.getElementById('name123').innerText = userData.name;
+          document.getElementById('emailId').innerText = userData.userId;
+          document.getElementById('points').innerText = scores.points;
+        }
+      })
+    </script>
   </body>
 </html>
