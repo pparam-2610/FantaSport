@@ -11,8 +11,11 @@ exports.displayTeam = async (req, res) => {
   res.render("teamDetails", { teamDetails: teamDetails });
 };
 
-exports.calculatePoints = async (req,res) => {
-  let fixtureTeams = await Teams.calculatePoints({ fixtureId: req.params.fixtureId });
+exports.calculatePoints = async (req, res) => {
+  let fixtureTeams = await Teams.calculatePoints({
+    fixtureId: req.params.fixtureId,
+  });
   console.log("fixtureTeams:", fixtureTeams);
-  res.send(fixtureTeams);
-}
+  // // res.send(fixtureTeams);
+  res.redirect("http://localhost:8000/upcoming?status=true");
+};
